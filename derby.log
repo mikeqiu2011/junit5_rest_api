@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Sat Feb 24 14:56:09 CST 2024:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-018d-d9e6-5d5b-00000cb464a8 
+on database directory memory:/Users/mikeqiu/code/java/junit-rest-api-application/testdb with class loader sun.misc.Launcher$AppClassLoader@18b4aac2 
+Loaded from file:/Users/mikeqiu/.m2/repository/org/apache/derby/derby/10.14.2.0/derby-10.14.2.0.jar
+java.vendor=Temurin
+java.runtime.version=1.8.0_402-b06
+user.dir=/Users/mikeqiu/code/java/junit-rest-api-application
+os.name=Mac OS X
+os.arch=x86_64
+os.version=14.2.1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
