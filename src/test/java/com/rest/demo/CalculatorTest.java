@@ -1,5 +1,6 @@
-package com.rest.app;
+package com.rest.demo;
 
+import com.rest.demo.Calculator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

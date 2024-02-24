@@ -1,4 +1,4 @@
-package com.rest.app;
+package com.rest.demo;
 
 public class Calculator {
     public int multiply(int a, int b) {
