@@ -2,6 +2,8 @@ package com.rest.app;
 
 import javassist.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -20,8 +22,13 @@ public class BookController {
     }
 
     @GetMapping(value = "{bookId}")
-    public Book getBookById(@PathVariable(value = "bookId") Long bookId) {
-        return bookRepository.findById(bookId).get();
+    public ResponseEntity<Book> getBookById(@PathVariable(value = "bookId") Long bookId) {
+        Optional<Book> optionalBook = bookRepository.findById(bookId);
+        if (!optionalBook.isPresent()){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(null);
+        }
+
+        return ResponseEntity.ok(optionalBook.get());
     }
 
     @PostMapping
@@ -46,5 +53,15 @@ public class BookController {
         existingBookRecord.setRating(bookRecord.getRating());
 
         return bookRepository.save(existingBookRecord);
+    }
+
+    @DeleteMapping(value = "{bookId}")
+    public void deleteBookById(@PathVariable(value = "bookId") Long bookId) throws NotFoundException {
+        Optional<Book> optionalBook = bookRepository.findById(bookId);
+        if (!optionalBook.isPresent()) {
+            throw new NotFoundException("bookId " + bookId + " not found");
+        }
+
+        bookRepository.deleteById(bookId);
     }
 }
